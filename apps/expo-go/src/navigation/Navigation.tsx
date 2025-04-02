@@ -1,4 +1,4 @@
-import { HomeFilledIcon, SettingsFilledIcon } from '@expo/styleguide-native';
+import { HomeFilledIcon, SettingsFilledIcon, QuestionIcon } from '@expo/styleguide-native';
 import { NavigationContainer, useTheme, useNavigationContainerRef } from '@react-navigation/native';
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 import * as React from 'react';
@@ -13,6 +13,7 @@ import Themes from '../constants/Themes';
 import { AccountModal } from '../screens/AccountModal';
 import { BranchDetailsScreen } from '../screens/BranchDetailsScreen';
 import { BranchListScreen } from '../screens/BranchListScreen';
+import { CustomLoaderScreen } from '../screens/CustomLoaderScreen/CustomLoaderScreen';
 import { DiagnosticsStackScreen } from '../screens/DiagnosticsScreen';
 import { FeedbackFormScreen } from '../screens/FeedbackFormScreen';
 import { HomeScreen } from '../screens/HomeScreen';
@@ -153,6 +154,15 @@ function TabNavigator(props: { theme: string }) {
           title: 'Settings',
           tabBarIcon: (props) => <SettingsFilledIcon {...props} style={styles.icon} size={24} />,
           tabBarLabel: 'Settings',
+        }}
+      />
+      <BottomTab.Screen
+        name="CustomLoaderScreen"
+        component={CustomLoaderScreen}
+        options={{
+          title: 'Custom Loader',
+          tabBarIcon: (props) => <QuestionIcon {...props} style={styles.icon} size={24} />,
+          tabBarLabel: 'Custom Loader',
         }}
       />
     </BottomTab.Navigator>
